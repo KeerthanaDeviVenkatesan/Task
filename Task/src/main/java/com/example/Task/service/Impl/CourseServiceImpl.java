@@ -1,6 +1,6 @@
 package com.example.Task.service.Impl;
 
-import com.example.Task.Repository.CourseRepo;
+import com.example.Task.repository.CourseRepo;
 import com.example.Task.entity.Course;
 import com.example.Task.service.CourseService;
 import org.springframework.beans.factory.annotation.Autowired;

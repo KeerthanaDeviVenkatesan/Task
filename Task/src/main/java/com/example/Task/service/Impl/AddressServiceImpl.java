@@ -1,6 +1,6 @@
 package com.example.Task.service.Impl;
 
-import com.example.Task.Repository.AddressRepo;
+import com.example.Task.repository.AddressRepo;
 import com.example.Task.entity.Address;
 import com.example.Task.service.AddressService;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,6 +1,5 @@
 package com.example.Task.controller;
 
-
 import com.example.Task.entity.Student;
 import com.example.Task.service.Impl.StudentServiceImpl;
 import org.apache.logging.log4j.LogManager;
@@ -52,15 +51,15 @@ public class StudentController {
         logger.info("Updated student with ID: {}", student_id);
         return updatedStudent;
     }
-    @PutMapping("/{student_id}/course/{course_id}")
-    public Student assignCourseToStudent(@PathVariable Long student_id, @PathVariable Long course_id){
-        return studentService.assignCourseToStudent(student_id, course_id);
-    }
 
     @DeleteMapping("/{student_id}")
     public void deleteStudent(@PathVariable Long student_id) {
         logger.info("Received request to delete student with ID: {}", student_id);
         studentService.deleteStudent(student_id);
         logger.info("Deleted student with ID: {}", student_id);
+    }
+    @PutMapping("/{student_id}/courses/{course_id}")
+    public Student assignCourseToStudent(@PathVariable Long student_id,@PathVariable Long course_id){
+        return studentService.assignCourseToStudent(student_id,course_id);
     }
 }

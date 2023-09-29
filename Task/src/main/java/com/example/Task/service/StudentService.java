@@ -13,4 +13,5 @@ public interface StudentService {
 
     Student updateStudent(Student student);
     void deleteStudent(Long student_id);
+    Student assignCourseToStudent(Long studentId, Long courseId);
 }

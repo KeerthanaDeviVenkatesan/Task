@@ -12,7 +12,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Table(name = "course")
+@Table(name = "courses")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -21,9 +21,11 @@ public class Course {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @NotNull(message = "Course ID cannot be null")
     private Long course_id;
+
     @NotBlank(message = "Course title cannot be blank")
     @Size(min = 2, max = 20, message = "Course title must be between 2 and 20 characters")
     private String course_title;
+
     @Min(value = 0, message = "Fee must be a positive number or zero")
     private double course_fee;
 

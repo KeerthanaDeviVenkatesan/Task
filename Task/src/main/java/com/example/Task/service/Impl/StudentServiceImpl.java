@@ -1,7 +1,7 @@
 package com.example.Task.service.Impl;
 
-import com.example.Task.Repository.CourseRepo;
-import com.example.Task.Repository.StudentRepo;
+import com.example.Task.repository.CourseRepo;
+import com.example.Task.repository.StudentRepo;
 import com.example.Task.entity.Course;
 import com.example.Task.entity.Student;
 import com.example.Task.service.StudentService;
@@ -44,13 +44,15 @@ public class StudentServiceImpl implements StudentService {
         studentRepo.deleteById(studentId);
     }
 
-    public Student assignCourseToStudent(Long student_id, Long course_id) {
-        Set<Course> courseSet = null;
-        Student student = studentRepo.findById(student_id).get();
-        Course course = courseRepo.findById(course_id).get();
-        courseSet =  student.getAssignedCourses();
+    @Override
+    public Student assignCourseToStudent(Long studentId, Long courseId) {
+        Set<Course> courseSet=null;
+        Student student=studentRepo.findById(studentId).get();
+        Course course=courseRepo.findById(courseId).get();
+        courseSet=student.getAssignedCourses();
         courseSet.add(course);
         student.setAssignedCourses(courseSet);
         return studentRepo.save(student);
+
     }
 }

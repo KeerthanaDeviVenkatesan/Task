@@ -1,12 +1,9 @@
 package com.example.Task.entity;
 
-
 import lombok.*;
-
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -14,7 +11,7 @@ import java.util.Set;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "Student")
+@Table(name = "students")
 public class Student {
 
     @Id
@@ -30,11 +27,10 @@ public class Student {
     private String student_dep;
 
 
-    @ManyToMany(cascade = { CascadeType.PERSIST, CascadeType.MERGE })
-    @JoinTable(
-            name = "student_course",
-            joinColumns = @JoinColumn(name = "student_id"),
-            inverseJoinColumns = @JoinColumn(name = "course_id")
+    @ManyToMany
+    @JoinTable(name = "student_course",
+            joinColumns=@JoinColumn(name = "student_id"),
+            inverseJoinColumns=@JoinColumn(name = "course_id")
     )
-    private Set<Course> assignedCourses = new HashSet<>();
+    private Set<Course> assignedCourses=new HashSet<>();
 }
